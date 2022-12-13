@@ -5,6 +5,11 @@ const stateSpan = document.getElementById("state");
 const citySpan = document.getElementById("city");
 const errP = document.getElementById("err");
 
+//Spam defalt :)
+function spanDefault() {
+    return (stateSpan.innerHTML = "?"), (citySpan.innerHTML = "?");
+}
+
 //Verificação do input
 function validationCep() {
     const regex = /\d{5}-\d{3}/g;
@@ -14,8 +19,7 @@ function validationCep() {
         cepInput.style.animation = "none";
         return true;
     } else {
-        stateSpan.innerHTML = "?";
-        citySpan.innerHTML = "?";
+        spanDefault()
         cepInput.style.border = "2px solid #dd3b3b";
         requiredSpan.style.display = "block";
         setTimeout(() => (cepInput.style.animation = "tremer 0.1s"), 1);
@@ -26,11 +30,11 @@ function validationCep() {
 
 //CEP Mask
 cepInput.addEventListener("keypress", () => {
-    const ipt = cepInput.value
+    const ipt = cepInput.value;
     if (ipt.length === 5) {
-        cepInput.value += "-"
+        cepInput.value += "-";
     }
-})
+});
 
 //Fução de pesquisa
 const fetchCEP = async (cep) => {
@@ -41,14 +45,12 @@ const fetchCEP = async (cep) => {
         citySpan.innerHTML = data.city;
         errP.style.display = "none";
     } else {
-        stateSpan.innerHTML = "?";
-        citySpan.innerHTML = "?"
+        spanDefault()
         errP.style.display = "block";
         setTimeout(() => (errP.style.animation = "tremer 0.1s"), 1);
         errP.style.animation = "none";
     }
 };
-
 
 //Submit event
 form.addEventListener("submit", (evt) => {
