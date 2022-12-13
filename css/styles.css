@@ -23,7 +23,7 @@
     padding: 20px;
     border-radius: 20px;
     width: 340px;
-    height: 220px;
+    height: 240px;
 }
 
 #name {
@@ -48,16 +48,6 @@
 #input-cep:focus {
     border: 3px solid #141416;
 }
-
-/* #input-cep {
-    padding: 10px;
-    border-radius: 5px;
-    outline: none;
-    color: #1b1b1d;
-    margin-right: 10px;
-    background-color: #2e2e31;
-    border: 2px solid #1b1b1d;
-} */
 
 #cep-find {
     padding: 10px;
@@ -105,4 +95,9 @@
     50% {margin-left: 0;}
     75% {margin-left: 5px;}
     100% {margin-left: 0;}
+}
+
+#err {
+    display: none;
+    animation: none;
 }
