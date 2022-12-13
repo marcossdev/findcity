@@ -24,6 +24,7 @@ function validationCep() {
         requiredSpan.style.display = "block";
         setTimeout(() => (cepInput.style.animation = "tremer 0.1s"), 1);
         cepInput.style.animation = "none";
+        errP.style.display = "none"
         return false;
     }
 }
