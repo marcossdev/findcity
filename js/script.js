@@ -1,7 +1,6 @@
 const cepInput = document.getElementById("input-cep");
 const requiredSpan = document.getElementById("required");
 const form = document.getElementById("form-cep");
-
 const stateSpan = document.getElementById("state");
 const citySpan = document.getElementById("city");
 const errP = document.getElementById("err");
