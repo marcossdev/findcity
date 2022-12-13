@@ -25,6 +25,14 @@ function validationCep() {
     }
 }
 
+//CEP Mask
+cepInput.addEventListener("keypress", () => {
+    const ipt = cepInput.value
+    if (ipt.length === 5) {
+        cepInput.value += "-"
+    }
+})
+
 //Fução de pesquisa
 const fetchCEP = async (cep) => {
     const APIResp = await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);

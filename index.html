@@ -24,14 +24,14 @@
                         <input
                             type="text"
                             id="input-cep"
-                            placeholder="CEP: 00000-000"
+                            placeholder="Digite o CEP..."
                             maxlength="9"
                             oninput="this.value = this.value.replace(/[^0-9\-]/g, '').replace(/(\..*?)\..*/g, '$1');"
                             autocomplete="off"
                         />
                         <input type="submit" id="cep-find" value="Buscar" />
                     </div>
-                    <span id="required">O CEP deve conter o ( - ) hifen e 8 digitos!</span>
+                    <span id="required">O CEP deve conter 8 digitos!</span>
                 </form>
                 <div class="data">
                     <p>Estado: <span id="state">?</span></p>
