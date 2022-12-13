@@ -27,6 +27,7 @@
                             placeholder="CEP: 00000-000"
                             maxlength="9"
                             oninput="this.value = this.value.replace(/[^0-9\-]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                            autocomplete="off"
                         />
                         <input type="submit" id="cep-find" value="Buscar" />
                     </div>
