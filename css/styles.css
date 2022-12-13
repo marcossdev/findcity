@@ -6,15 +6,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    appearance: textfield;
-}
-
 .main-container {
     display: flex;
     flex-direction: column;
@@ -50,8 +41,12 @@ input[type="number"] {
     outline: none;
     margin-right: 10px;
     background-color: #2e2e31;
-    border: 2px solid #1b1b1d;
+    border: 3px solid #1b1b1d;
     animation: none;
+}
+
+#input-cep:focus {
+    border: 3px solid #141416;
 }
 
 /* #input-cep {
@@ -68,7 +63,7 @@ input[type="number"] {
     padding: 10px;
     border-radius: 5px;
     background-color: #2e2e31;
-    border: 2px solid #1b1b1d;
+    border: 3px solid #1b1b1d;
     width: 80px;
     color: #fff;
     cursor: pointer;
