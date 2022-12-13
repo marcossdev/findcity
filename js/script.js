@@ -19,7 +19,7 @@ function validationCep() {
         cepInput.style.animation = "none";
         return true;
     } else {
-        spanDefault()
+        spanDefault();
         cepInput.style.border = "2px solid #dd3b3b";
         requiredSpan.style.display = "block";
         setTimeout(() => (cepInput.style.animation = "tremer 0.1s"), 1);
@@ -45,7 +45,7 @@ const fetchCEP = async (cep) => {
         citySpan.innerHTML = data.city;
         errP.style.display = "none";
     } else {
-        spanDefault()
+        spanDefault();
         errP.style.display = "block";
         setTimeout(() => (errP.style.animation = "tremer 0.1s"), 1);
         errP.style.animation = "none";
