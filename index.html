@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-            rel="stylesheet"
-        />
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CEP - Fetch Project</title>
-        <link rel="stylesheet" href="./css/styles.css" />
-        <script src="./js/script.js" defer></script>
-    </head>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+			rel="stylesheet"
+		/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CEP - Fetch Project</title>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<script src="./js/script.js" defer></script>
+	</head>
 
-    <body>
-        <div class="main-container">
-            <div class="container">
-                <h3 id="name">Busque uma cidade</h3>
-                <form id="form-cep">
-                    <div class="ipt-btn">
-                        <input
-                            type="text"
-                            id="input-cep"
-                            placeholder="Digite o CEP..."
-                            maxlength="9"
-                            oninput="this.value = this.value.replace(/[^0-9\-]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                            autocomplete="off"
-                        />
-                        <input type="submit" id="cep-find" value="Buscar" />
-                    </div>
-                    <span id="required">O CEP deve conter 8 digitos!</span>
-                </form>
-                <div class="data">
-                    <p>Estado: <span id="state">?</span></p>
-                    <p>Cidade: <span id="city">?</span></p>
-                    <p id="err">O CEP não foi encontrado.</p>
-                </div>
-            </div>
-        </div>
-    </body>
+	<body>
+		<div class="main-container">
+			<div class="container">
+				<h3 id="name">Busque uma cidade</h3>
+				<form id="form-cep">
+					<div class="ipt-btn">
+						<input
+							type="text"
+							id="input-cep"
+							placeholder="Digite o CEP..."
+							maxlength="9"
+							oninput="this.value = this.value.replace(/[^0-9\-]/g, '').replace(/(\..*?)\..*/g, '$1');"
+							autocomplete="off"
+						/>
+						<input type="submit" id="cep-find" value="Buscar" />
+					</div>
+					<span id="required">O CEP deve conter 8 digitos!</span>
+				</form>
+				<div class="data">
+					<p>Estado: <span id="state">?</span></p>
+					<p>Cidade: <span id="city">?</span></p>
+					<p id="err">O CEP não foi encontrado.</p>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
