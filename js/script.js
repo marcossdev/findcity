@@ -31,7 +31,7 @@ function validationCep() {
 }
 
 //CEP Mask
-cepInput.addEventListener("keypress", () => {
+cepInput.addEventListener("keyup", () => {
 	const ipt = cepInput.value;
 	if (ipt.length === 5) {
 		cepInput.value += "-";
