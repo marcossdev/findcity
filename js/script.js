@@ -3,7 +3,7 @@ const requiredSpan = document.getElementById("required");
 const form = document.getElementById("form-cep");
 const stateSpan = document.getElementById("state");
 const citySpan = document.getElementById("city");
-const errP = document.getElementById("err");
+const errP = document.getElementById("data");
 
 //Spam defalt :)
 function spanDefault() {
@@ -12,11 +12,13 @@ function spanDefault() {
 
 //Verificação do input
 function validationCep() {
-	const regex = /\d{5}-\d{3}/g;
+	const regex = /\d{5}-?\d{3}/g;
 	if (regex.test(cepInput.value)) {
 		cepInput.style.border = "";
 		requiredSpan.style.display = "none";
 		cepInput.style.animation = "none";
+		errP.innerHTML = "Carregando...";
+		spanDefault();
 		return true;
 	} else {
 		spanDefault();
@@ -24,7 +26,6 @@ function validationCep() {
 		requiredSpan.style.display = "block";
 		setTimeout(() => (cepInput.style.animation = "tremer 0.1s"), 1);
 		cepInput.style.animation = "none";
-		errP.style.display = "none";
 		return false;
 	}
 }
@@ -44,10 +45,10 @@ const fetchCEP = async (cep) => {
 	if (APIResp.status === 200) {
 		stateSpan.innerHTML = data.state;
 		citySpan.innerHTML = data.city;
-		errP.style.display = "none";
+		errP.innerHTML = "Dados encontrados!";
 	} else {
 		spanDefault();
-		errP.style.display = "block";
+		errP.innerHTML = "O CEP não foi encontrado!";
 		setTimeout(() => (errP.style.animation = "tremer 0.1s"), 1);
 		errP.style.animation = "none";
 	}
