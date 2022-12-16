@@ -3,21 +3,19 @@ const requiredSpan = document.getElementById("required");
 const form = document.getElementById("form-cep");
 const stateSpan = document.getElementById("state");
 const citySpan = document.getElementById("city");
-const errP = document.getElementById("data");
+const dataSpan = document.getElementById("data");
 
-//Spam defalt :)
 function spanDefault() {
 	return (stateSpan.innerHTML = "?"), (citySpan.innerHTML = "?");
 }
 
-//Verificação do input
 function validationCep() {
-	const regex = /\d{5}-?\d{3}/g;
-	if (regex.test(cepInput.value)) {
+	const regexCEP = /\d{5}-?\d{3}/g;
+	if (regexCEP.test(cepInput.value)) {
 		cepInput.style.border = "";
 		requiredSpan.style.display = "none";
 		cepInput.style.animation = "none";
-		errP.innerHTML = "Carregando...";
+		dataSpan.innerHTML = "Carregando...";
 		spanDefault();
 		return true;
 	} else {
@@ -30,26 +28,31 @@ function validationCep() {
 	}
 }
 
-//Fução de pesquisa
 const fetchCEP = async (cep) => {
 	const APIResp = await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);
 	const data = await APIResp.json();
 	if (APIResp.status === 200) {
-		stateSpan.innerHTML = data.state;
-		citySpan.innerHTML = data.city;
-		errP.innerHTML = "Dados encontrados!";
-	} else {
-		spanDefault();
-		errP.innerHTML = "O CEP não foi encontrado!";
-		setTimeout(() => (errP.style.animation = "tremer 0.1s"), 1);
-		errP.style.animation = "none";
+		return data;
 	}
 };
 
-//Submit event
+const showData = async (cep) => {
+	const data = await fetchCEP(cep);
+	if (data) {
+		stateSpan.innerHTML = data.state;
+		citySpan.innerHTML = data.city;
+		dataSpan.innerHTML = "Dados encontrados!";
+	} else {
+		spanDefault();
+		dataSpan.innerHTML = "O CEP não foi encontrado!";
+		setTimeout(() => (dataSpan.style.animation = "tremer 0.1s"), 1);
+		dataSpan.style.animation = "none";
+	}
+};
+
 form.addEventListener("submit", (evt) => {
 	evt.preventDefault();
 	if (validationCep() === true) {
-		fetchCEP(cepInput.value.replace("-", ""));
+		showData(cepInput.value.replace("-", ""));
 	}
 });
