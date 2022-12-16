@@ -12,6 +12,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>CEP - Fetch Project</title>
 		<link rel="stylesheet" href="./css/styles.css" />
+		<script src="https://code.jquery.com/jquery-3.6.2.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 		<script src="./js/script.js" defer></script>
 	</head>
 
@@ -24,6 +26,7 @@
 						<input
 							type="text"
 							id="input-cep"
+							class="cep"
 							placeholder="Digite o CEP..."
 							maxlength="9"
 							oninput="this.value = this.value.replace(/[^0-9\-]/g, '').replace(/(\..*?)\..*/g, '$1');"
@@ -40,5 +43,10 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function () {
+				$(".cep").mask("00000-000");
+			});
+		</script>
 	</body>
 </html>
